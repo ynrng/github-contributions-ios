@@ -19,6 +19,7 @@ struct GitHubContributionsGraphWidgetView: View {
             columnsCount: columnsCount,
             colors: viewModel.contributionLevels(rowsCount: rowsCount, columnsCount: columnsCount).map { $0.map(viewModel.theme.color) },
             topLeadingText: viewModel.topLeadingText,
+            topTrailingText: viewModel.topTrailingText,
             emptyText: NSLocalizedString("contributions-empty-text", comment: "")
         )
         .redacted(reason: viewModel.showPlaceholders ? .placeholder : .init())

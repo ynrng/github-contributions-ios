@@ -31,6 +31,10 @@ struct GitHubContributionsViewModel {
     var topLeadingText: String? {
         username
     }
+    
+    var topTrailingText: String? {
+        decideStrikingText()
+    }
 
     var showError: Bool {
         username != .none && contributions.isEmpty
@@ -38,6 +42,16 @@ struct GitHubContributionsViewModel {
 
     var lastContributionDate: Date? {
         contributions.last?.date
+    }
+    
+    func decideStrikingText() -> String? {
+        guard let lastContribution = contributions.last else { return NSLocalizedString("striking-fail-text", comment: "")}
+        let lastLevel = lastContribution.level
+//        return NSLocalizedString("striking-suc-text", comment: "")
+//        let lastDate = lastContribution.date
+//        let today = Date()
+//        if today == lastDate
+        return lastLevel.rawValue > 0 ? NSLocalizedString("striking-suc-text", comment: "") :  NSLocalizedString("striking-fail-text", comment: "")
     }
 
     func contributionLevels(rowsCount: Int, columnsCount: Int) -> [[GitHub.Contribution.Level]] {

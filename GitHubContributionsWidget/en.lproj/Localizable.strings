@@ -11,3 +11,6 @@
 
 "contributions-empty-text" = "Set a GitHub username";
 "contributions-fetch-error" = "An error occurred while fetching contributions from GitHub";
+
+"striking-suc-text" = "Yay🫶";
+"striking-fail-text" = "Boo😡";
